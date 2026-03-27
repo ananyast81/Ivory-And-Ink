@@ -2,39 +2,605 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css_files/login.css">
-    <link rel="stylesheet" href="css_files/home.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Login Page</title>
+    <title>IVORY & INK – Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --gold: #b49b66;
+            --dark: #1a1a1a;
+            --light-bg: #f8f8f8;
+            --white: #ffffff;
+            --shadow: rgba(0,0,0,0.08);
+        }
+
+        body {
+            width: 100%;
+            background: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ── HEADER ── */
+        header {
+            text-align: center;
+            background: var(--white);
+            padding: 30px 0 0 0;
+        }
+
+        .brand-name h1 {
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 220px;
+            height: auto;
+        }
+
+
+
+        /* ── MAIN LOGIN AREA ── */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+            /* subtle banner-like background */
+            background:
+                linear-gradient(135deg, rgba(180,155,102,0.08) 0%, transparent 60%),
+                var(--light-bg);
+        }
+
+        .login-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 920px;
+            min-height: 520px;
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.10);
+        }
+
+        /* LEFT DECORATIVE PANEL */
+        .login-panel-left {
+            flex: 1;
+            background: linear-gradient(160deg, #1a1a1a 0%, #2e2a22 60%, #3b3120 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* decorative rings */
+        .login-panel-left::before,
+        .login-panel-left::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(180,155,102,0.2);
+        }
+        .login-panel-left::before {
+            width: 340px; height: 340px;
+            top: -80px; right: -80px;
+        }
+        .login-panel-left::after {
+            width: 220px; height: 220px;
+            bottom: -50px; left: -50px;
+        }
+
+        .panel-brand {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: 4px;
+            color: var(--white);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .panel-divider {
+            width: 40px;
+            height: 2px;
+            background: var(--gold);
+            margin: 0 auto 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .panel-tagline {
+            font-size: 14px;
+            color: rgba(255,255,255,0.6);
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 220px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .panel-icon {
+            font-size: 52px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            opacity: 0.85;
+            position: relative;
+            z-index: 1;
+        }
+
+        .panel-new-account {
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .panel-new-account p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 12px;
+        }
+
+        .btn-outline-white {
+            display: inline-block;
+            padding: 10px 28px;
+            border: 2px solid rgba(255,255,255,0.5);
+            color: var(--white);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 30px;
+            letter-spacing: 1px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .btn-outline-white:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        /* RIGHT FORM PANEL */
+        .login-panel-right {
+            flex: 1;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-heading {
+            margin-bottom: 36px;
+        }
+
+        .form-heading h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 6px;
+        }
+
+        .form-heading p {
+            font-size: 14px;
+            color: #888;
+            font-weight: 300;
+        }
+
+        .gold-bar {
+            width: 36px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 2px;
+            margin-top: 10px;
+        }
+
+        /* INPUT GROUPS */
+        .input-group {
+            margin-bottom: 22px;
+            position: relative;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            padding: 13px 45px;
+            border: 1.5px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 14px;
+            color: var(--dark);
+            background: #fafafa;
+            outline: none;
+            transition: 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .input-wrapper i.fa-user,
+        .input-wrapper i.fa-lock {
+            position: absolute;
+            left: 16px;
+            color: #bbb;
+            font-size: 15px;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .toggle-pass {
+            position: absolute;
+            right: 16px;
+            color: #bbb;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        /* toggle password eye */
+        .toggle-pass {
+            order: 3;
+            position: absolute;
+            right: 16px;
+            color: #bbb;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .toggle-pass:hover {
+            color: var(--gold);
+        }
+
+        /* EXTRAS ROW */
+        .extras-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #666;
+            cursor: pointer;
+        }
+
+        .remember-me input[type="checkbox"] {
+            accent-color: var(--gold);
+            width: 15px;
+            height: 15px;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            font-size: 13px;
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+        /* SUBMIT BUTTON */
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: var(--dark);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
+            z-index: 0;
+        }
+
+        .btn-login:hover::after {
+            transform: scaleX(1);
+        }
+
+        .btn-login span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* DIVIDER */
+        .or-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 24px 0 20px;
+        }
+
+        .or-divider hr {
+            flex: 1;
+            border: none;
+            border-top: 1px solid #eee;
+        }
+
+        .or-divider span {
+            font-size: 12px;
+            color: #aaa;
+            white-space: nowrap;
+        }
+
+        /* SOCIAL BUTTONS */
+        .social-login {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 11px 12px;
+            border: 1.5px solid #e5e5e5;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #444;
+            cursor: pointer;
+            background: var(--white);
+            transition: 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .social-btn i {
+            font-size: 16px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background-color: hwb(0 2% 12% / 0.695);
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        footer p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+        }
+
+        footer .foot-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        footer .foot-links a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.55);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer .foot-links a:hover {
+            color: var(--gold);
+        }
+
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-wrapper {
+            animation: fadeUp 0.55s ease both;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            .login-panel-left {
+                display: none;
+            }
+
+            .login-panel-right {
+                padding: 40px 30px;
+            }
+
+            .brand-name h1 { font-size: 26px; }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-            <div class="logo">
-            <a href="home.html" target="_blank">Ivory & Ink</a></div>
 
-        
-        <div class="menu">
-            <a href="#">WOMEN</a>
-            <a href="#">MEN</a>
-            <a href="#">KIDS</a>
-            <a href="#">ACCESSORIES</a>
-            <a href="#Contact">CONTACTS</a>
+    <!-- HEADER -->
+    <header>
+        <div class="brand-name">
+            <h1>IVORY & INK</h1>
         </div>
+        <div class="logo-container">
+            <img src="/static/images/imageslogo.jpeg" class="logo" alt="Ivory & Ink Logo">
+        </div>
+    </header>
 
-        
-        <div class="icons">
-            <a href="#"><i class="fas fa-search"></i></a>
-            <a href="login.html"><i class="fas fa-user"></i></a>
-            <a href="#"><i class="fas fa-shopping-bag"></i></a>
+
+
+    <!-- MAIN -->
+    <main>
+        <div class="login-wrapper">
+
+            <!-- LEFT DECORATIVE PANEL -->
+            <div class="login-panel-left">
+                <div class="panel-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <div class="panel-brand">IVORY & INK</div>
+                <div class="panel-divider"></div>
+                <p class="panel-tagline">Curated elegance, delivered to your door. Sign in to explore exclusive collections.</p>
+                <div class="panel-new-account">
+                    <p>Don't have an account yet?</p>
+                    <button class="btn-outline-white">Create Account</button>
+                </div>
+            </div>
+
+            <!-- RIGHT FORM PANEL -->
+            <div class="login-panel-right">
+                <div class="form-heading">
+                    <h2>Welcome Back</h2>
+                    <p>Sign in to your account to continue</p>
+                    <div class="gold-bar"></div>
+                </div>
+
+                <!-- USERNAME -->
+                <div class="input-group">
+                    <label for="username">Username or Email</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="username" placeholder="Enter your username or email" autocomplete="username">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password">
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-eye toggle-pass" id="togglePass" title="Show password"></i>
+                    </div>
+                </div>
+
+                <!-- EXTRAS -->
+                <div class="extras-row">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember"> Remember me
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <!-- SUBMIT -->
+                <button class="btn-login" onclick="handleLogin()">
+                    <span>SIGN IN</span>
+                </button>
+
+                <!-- OR DIVIDER -->
+                <div class="or-divider">
+                    <hr><span>or continue with</span><hr>
+                </div>
+
+                <!-- SOCIAL -->
+                <div class="social-login">
+                    <a href="#" class="social-btn">
+                        <i class="fab fa-google"></i> Google
+                    </a>
+                    <a href="#" class="social-btn">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </nav>
-    <form action="#" method="POST" class="entire-flex">
-    <header><h1>Login</h1></header>
-    <p>Don't have an account?<a href="#">Sign Up Here</a></p>
-    <div class="mail"><input type="email" placeholder="Email"></div>
-    <div class="pass"><input type="password" placeholder="Password"></div>
-    <div><input type="submit" value="Sign In" class="login-button"></div>
-    </form>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026, Ivory & Ink. All rights reserved.</p>
+        <div class="foot-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Help</a>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle password visibility
+        const togglePass = document.getElementById('togglePass');
+        const passwordInput = document.getElementById('password');
+
+        togglePass.addEventListener('click', () => {
+            const isHidden = passwordInput.type === 'password';
+            passwordInput.type = isHidden ? 'text' : 'password';
+            togglePass.classList.toggle('fa-eye', !isHidden);
+            togglePass.classList.toggle('fa-eye-slash', isHidden);
+        });
+
+        // Basic login handler (placeholder)
+        function handleLogin() {
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }
+            // Submit to your backend here
+            alert(`Welcome back, ${username}! (Demo only — connect to your backend.)`);
+        }
+
+        // Allow Enter key to submit
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') handleLogin();
+        });
+    </script>
+
 </body>
 </html>
