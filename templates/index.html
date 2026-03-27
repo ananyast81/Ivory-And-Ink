@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVORY & INK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <div class="brand-name">
+            <h1>IVORY & INK</h1>
+        </div>
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/imageslogo.jpeg') }}" class="logo" alt="Ivory & Ink Logo">
+        </div>
+        </header>
+        <nav>
+        <ul id="navbar">
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Kids</a></li>
+            <li><a href="#"> <i class="fas fa-search"></i> </a></li>
+            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+        </ul>
+        </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Offer</h1>
+            <h3>Value Deals</h3>
+            <p>Explore our curated collection of exquisite clothing.</p>
+            <button>Shop Now</button>
+        </div>
+    </section>
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="{{ url_for('static', filename='images/imagefeature1.jpeg') }}" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{{ url_for('static', filename='images/imagefeature2.jpeg') }}" alt="">
+            <h6>On Time Delivery</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{{ url_for('static', filename='images/imagefeature3.jpeg') }}" alt="">
+            <h6>Best Price</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{{ url_for('static', filename='images/imagefeature4.jpeg') }}" alt="">
+            <h6>Excellent Quality</h6>
+        </div>
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Exclusive Offer</h4>
+        <h2>Up to <span>70% Off</span> - All t-shirts & Accessories</h2>
+        <button>Explore More</button>
+    </section>
+
+
+  <section class="double-banner section-p1">
+
+
+    <div class="right-banner">
+        <div class="overlay">
+            <h4>Cosy Wear</h4>
+            <h1>New Collection</h1>
+            <p>Discover our latest collection</p>
+            <button>Collection</button>
+        </div>
+    </div>
+
+
+    <div class="left-banner">
+        <div class="overlay">
+            <h4>Men Wears</h4>
+            <h1>Upcoming Season</h1>
+            <p>Discover our latest collection</p>
+            <button>Collection</button>
+        </div>
+    </div>
+     </section>
+<footer class="section-p1">
+    <div class="col">
+        <img class="logo" src="imageslogo.jpeg" alt="">
+        <h4>Contact</h4>
+        <p><strong>Address: </strong> India</p>
+        <p><strong>Phone: </strong>1234567890</p>
+        <p><strong>Hours: </strong>10:00 - 18:00, Mon - Sat</p>
+        <p><strong>Email: </strong>abc@gmail.com</p>
+        <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-pinterest-p"></i>
+                <i class="fab fa-youtube"></i>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+    </div>
+    </footer>  
+    <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+            <img src="imageplaystore.jpg" alt="">
+            <img src="imageappstore.png.png" alt="">
+        </div>
+       </div>
+        <p>Secured Payment Gateways</p>
+        <img src="imagepayment.png.png" alt="">
+    </div>
+    <div class="copyright">
+        <p>&copy; 2026, Ivory & Ink. All rights reserved.</p>
+    </div>
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>
